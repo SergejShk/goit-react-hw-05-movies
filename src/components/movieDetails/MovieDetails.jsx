@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import s from './MovieDetails.module.css';
 
 const MovieDetails = ({ movie }) => {
+  const location = useLocation();
+
   return (
     <>
       {movie.length !== 0 && (
         <>
-          <Link to="/" className={s.btnGoBack}>
+          <Link to={location.state ?? '/'} className={s.btnGoBack}>
             Go back
           </Link>
           <section className={s.section}>
